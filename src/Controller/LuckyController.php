@@ -7,7 +7,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class LuckyController
 {
-    #[Route('/')]
+    #[Route('/number')]
 public function number(): Response
 {
 $number = random_int(0, 100);
