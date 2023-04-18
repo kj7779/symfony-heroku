@@ -13,7 +13,6 @@
                 <th>actions</th>
             </tr>
         </thead>
-        <tbody>
         {% for diary in diaries %}
             <tr>
                 <td>{{ diary.date ? diary.date|date('Y-m-d') : '' }}</td>
