@@ -20,5 +20,4 @@
         "build": "encore production --progress",
         "heroku-postbuild": "webpack -p --config ./resources/webpack/webpack.config.js"
         }
-    }
 }
