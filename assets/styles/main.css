@@ -1,0 +1,60 @@
+body {
+    background-color: white;
+}
+
+a {
+    color: lightskyblue;
+    text-decoration: none;
+}
+
+h1 {
+    color: lightskyblue;
+    text-align: center;
+    margin: 0 auto 0 auto;
+}
+p {
+    color: black;
+    white-space: pre-wrap;
+}
+
+.btn {
+    transition-duration: 0.4s;
+    color:lightskyblue;
+    background: lightyellow;
+    border:lightblue;
+    font-size: 16px;
+    border-radius : 5%;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.btn:hover {
+    background-color: lightskyblue; /* Green */
+    color: white;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto 0 auto;
+
+}
+.main-section {
+    max-width: 760px;
+}
+
+.main-left {
+    display: flex;
+    justify-content: left;
+}
+
+.main-link {
+    color: black;
+}
+
+.main-btn {
+    display: flex;
+    margin: 0 auto 0 auto;
+}
