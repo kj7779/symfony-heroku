@@ -8,7 +8,6 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Date</th>
                 <th>Content</th>
                 <th>actions</th>
@@ -17,11 +16,10 @@
         <tbody>
         {% for diary in diaries %}
             <tr>
-                <td>{{ diary.id }}</td>
                 <td>{{ diary.date ? diary.date|date('Y-m-d') : '' }}</td>
                 <td>{{ diary.content }}</td>
                 <td>
-                    <a href="{{ path('app_diary_show', {'id': diary.id}) }}">show</a>
+                    <a href="{{ path('app_diary_show', {'id': diary.id}) }}">show</a><br>
                     <a href="{{ path('app_diary_edit', {'id': diary.id}) }}">edit</a>
                 </td>
             </tr>
