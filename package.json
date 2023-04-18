@@ -18,6 +18,10 @@
         "dev": "encore dev",
         "watch": "encore dev --watch",
         "build": "encore production --progress",
-        "postinstall": "webpack -p --config ./webpack.prod.config.js --progress"
-        }
+        "postinstall": "cd ./frontend && yarn && yarn run webpack --config ./webpack.config.js --mode production"
+        },
+
+    "engines": {
+        "yarn": "1.x"
+    }
 }
