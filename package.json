@@ -18,7 +18,8 @@
         "dev": "encore dev",
         "watch": "encore dev --watch",
         "build": "encore production --progress",
-        "postinstall": "webpack -p --config ./webpack.prod.config.js --progress"
+        "postinstall": "webpack -p --config ./webpack.prod.config.js --progress",
+        "heroku-postbuild" : "node_modules/.bin/encore production"
         },
 
     "engines": {

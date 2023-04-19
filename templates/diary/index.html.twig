@@ -13,7 +13,7 @@
                 <th>actions</th>
             </tr>
         </thead>
-        {% for diary in diaries %}
+        {% for diary in pagination %}
             <tr>
                 <td>{{ diary.date ? diary.date|date('Y-m-d') : '' }}</td>
                 <td>{{ diary.content }}</td>
@@ -29,6 +29,6 @@
         {% endfor %}
         </tbody>
     </table>
-
+    {{ knp_pagination_render(pagination) }}
     <a href="{{ path('app_diary_new') }}">Create new</a>
 {% endblock %}
