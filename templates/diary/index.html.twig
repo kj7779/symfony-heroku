@@ -5,30 +5,19 @@
 {% block body %}
     <h1>Diary index</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Date</th>
-                <th>Content</th>
-                <th>actions</th>
-            </tr>
-        </thead>
         {% for diary in pagination %}
-            <tr>
-                <td>{{ diary.date ? diary.date|date('Y-m-d') : '' }}</td>
-                <td>{{ diary.content }}</td>
-                <td>
-                    <a href="{{ path('app_diary_show', {'id': diary.id}) }}">show</a><br>
-                    <a href="{{ path('app_diary_edit', {'id': diary.id}) }}">edit</a>
-                </td>
-            </tr>
+                <span>{{ diary.date ? diary.date|date('Y-m-d') : '' }}</span>
+            <a href="{{ path('app_diary_show', {'id': diary.id}) }}"><span>show</span></a>
+            <a href="{{ path('app_diary_edit', {'id': diary.id}) }}">edit</a>
+                <p>{{ diary.content }}</p>
+
+
         {% else %}
             <tr>
                 <td colspan="4">no records found</td>
             </tr>
         {% endfor %}
-        </tbody>
-    </table>
+
     {{ knp_pagination_render(pagination) }}
     <a href="{{ path('app_diary_new') }}">Create new</a>
 {% endblock %}
