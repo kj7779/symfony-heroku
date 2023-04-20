@@ -10,9 +10,7 @@
             <span>{{ diary.date ? diary.date|date('Y-m-d') : '' }}</span>
             <a href="{{ path('app_diary_show', {'id': diary.id}) }}"><span>show</span></a>
             <a href="{{ path('app_diary_edit', {'id': diary.id}) }}">edit</a>
-            <p>{{ diary.content|length > 200 ? diary.content|slice(0, 200) ~ '…' : diary.content }}</p>
-
-
+            <p>{{ diary.content|length > 200 ? diary.content|slice(0, 200) ~ '…' : diary.content|nl2br }}</p>
         {% else %}
             <tr>
                 <td colspan="4">no records found</td>
