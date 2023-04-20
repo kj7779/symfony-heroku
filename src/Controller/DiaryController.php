@@ -23,15 +23,9 @@ class DiaryController extends AbstractController
             $request->query->getInt('page', 1)/*page number*/,
             3/*limit per page*/
         );
-        $pagination->setCustomParameters([
-            'align' => 'center', # center|right (for template: twitter_bootstrap_v4_pagination and foundation_v6_pagination)
-            'size' => 'large', # small|large (for template: twitter_bootstrap_v4_pagination)
-            'style' => 'bottom',
-            'span_class' => 'whatever',
-        ]);
 
         return $this->render('diary/index.html.twig', [
-            'pagination' => $pagination
+            'pagination' => $pagination, 'pageCount' =>$pagination->getCurrentPageNumber()
         ]);
     }
 
@@ -89,4 +83,5 @@ class DiaryController extends AbstractController
 
         return $this->redirectToRoute('app_diary_index', [], Response::HTTP_SEE_OTHER);
     }
+
 }
