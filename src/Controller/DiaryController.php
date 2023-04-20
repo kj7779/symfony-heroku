@@ -18,10 +18,11 @@ class DiaryController extends AbstractController
     public function index(DiaryRepository $diaryRepository,Request $request, PaginatorInterface $paginator): Response
     {
         $queryBuilder = $diaryRepository->findAll();
+        $queryBuilder = array_reverse($queryBuilder);
         $pagination = $paginator->paginate(
             $queryBuilder, /* query NOT result */
             $request->query->getInt('page', 1)/*page number*/,
-            3/*limit per page*/
+            5/*limit per page*/
         );
 
         return $this->render('diary/index.html.twig', [

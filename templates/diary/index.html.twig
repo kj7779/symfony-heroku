@@ -4,7 +4,7 @@
 
 {% block body %}
     <div>
-        <a href="{{ path('app_diary_new') }}"><h3>Write New Diary</h3></a>
+        <a href="{{ path('app_diary_new') }}"><h3 class="border-bottom">Write New Diary</h3></a>
     </div>
         {% for diary in pagination %}
             <span>{{ diary.date ? diary.date|date('Y-m-d') : '' }}</span>
