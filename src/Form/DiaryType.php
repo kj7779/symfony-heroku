@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Diary;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -13,7 +14,8 @@ class DiaryType extends AbstractType
     {
         $builder
             ->add('date')
-            ->add('content')
+            ->add('content', TextareaType::class, [
+                'attr' => array('style' => 'width: 100%','rows' => '15')])
         ;
     }
 

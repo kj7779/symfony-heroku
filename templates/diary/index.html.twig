@@ -3,13 +3,14 @@
 {% block title %}Diary index{% endblock %}
 
 {% block body %}
-    <h1>Diary index</h1>
-
+    <div>
+        <a href="{{ path('app_diary_new') }}"><h3>Write New Diary</h3></a>
+    </div>
         {% for diary in pagination %}
-                <span>{{ diary.date ? diary.date|date('Y-m-d') : '' }}</span>
+            <span>{{ diary.date ? diary.date|date('Y-m-d') : '' }}</span>
             <a href="{{ path('app_diary_show', {'id': diary.id}) }}"><span>show</span></a>
             <a href="{{ path('app_diary_edit', {'id': diary.id}) }}">edit</a>
-                <p>{{ diary.content }}</p>
+            <p>{{ diary.content|length > 200 ? diary.content|slice(0, 200) ~ '…' : diary.content }}</p>
 
 
         {% else %}
@@ -18,18 +19,5 @@
             </tr>
         {% endfor %}
 
-{#    {% if pageCount > 1 %}#}
-{#        items {{ firstItemNumber }} to {{ lastItemNumber }} of {{totalCount}}#}
-{#        {% if previous is defined %}#}
-{#            <a type="button" class="btn btn-secondary" rel="prev" href="{{ path(route, query|merge({(pageParameterName): previous})) }}">{{'<'}}</a>#}
-{#        {% else %}#}
-{#            <button type="button" class="btn btn-secondary" disabled><</button>#}
-{#        {% endif %}#}
-{#        {% if next is defined %}#}
-{#            <a type="button" class="btn btn-secondary" rel="next" href="{{ path(route, query|merge({(pageParameterName): next})) }}"> > </a>#}
-{#        {% else %}#}
-{#            <button type="button" class="btn btn-secondary" disabled> > </button>#}
-{#        {% endif %}#}
-{#    {% endif %}#}
-    <a href="{{ path('app_diary_new') }}">Create new</a>
+    {{ knp_pagination_render(pagination) }}
 {% endblock %}
