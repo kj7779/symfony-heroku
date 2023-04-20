@@ -18,6 +18,18 @@
             </tr>
         {% endfor %}
 
-    {{ knp_pagination_render(pagination) }}
+{#    {% if pageCount > 1 %}#}
+{#        items {{ firstItemNumber }} to {{ lastItemNumber }} of {{totalCount}}#}
+{#        {% if previous is defined %}#}
+{#            <a type="button" class="btn btn-secondary" rel="prev" href="{{ path(route, query|merge({(pageParameterName): previous})) }}">{{'<'}}</a>#}
+{#        {% else %}#}
+{#            <button type="button" class="btn btn-secondary" disabled><</button>#}
+{#        {% endif %}#}
+{#        {% if next is defined %}#}
+{#            <a type="button" class="btn btn-secondary" rel="next" href="{{ path(route, query|merge({(pageParameterName): next})) }}"> > </a>#}
+{#        {% else %}#}
+{#            <button type="button" class="btn btn-secondary" disabled> > </button>#}
+{#        {% endif %}#}
+{#    {% endif %}#}
     <a href="{{ path('app_diary_new') }}">Create new</a>
 {% endblock %}

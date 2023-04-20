@@ -14,7 +14,7 @@ use Knp\Component\Pager\PaginatorInterface;
 #[Route('/diary')]
 class DiaryController extends AbstractController
 {
-    #[Route('/', name: 'app_diary_index', methods: ['GET'])]
+    #[Route('/list', name: 'app_diary_index', methods: ['GET'])]
     public function index(DiaryRepository $diaryRepository,Request $request, PaginatorInterface $paginator): Response
     {
         $queryBuilder = $diaryRepository->findAll();
