@@ -16,10 +16,7 @@ class DiaryType extends AbstractType
         $dt = new \DateTime();
         $builder
             ->add('date', DateType::class, [
-                'input'  => 'array',
-                'widget' => 'choice',
-                'format' => 'dd MM yyyy',
-                'data'  =>  array('year' => $dt->format('Y'), 'month' => $dt->format('m'), 'day' => $dt->format('d'))
+                'data' => new \DateTime("now")
             ])
             ->add('content', TextareaType::class, [
                 'attr' => array('style' => 'width: 100%','rows' => '15','placeholder' => 'Write here')])
