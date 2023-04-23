@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Diary;
 use App\Form\DiaryType;
+use App\Form\DiaryEditType;
 use App\Repository\DiaryRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -60,7 +61,7 @@ class DiaryController extends AbstractController
     #[Route('/{id}/edit', name: 'app_diary_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Diary $diary, DiaryRepository $diaryRepository): Response
     {
-        $form = $this->createForm(DiaryType::class, $diary);
+        $form = $this->createForm(DiaryEditType::class, $diary);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -74,6 +75,9 @@ class DiaryController extends AbstractController
             'form' => $form,
         ]);
     }
+
+
+
 
     #[Route('/{id}', name: 'app_diary_delete', methods: ['POST'])]
     public function delete(Request $request, Diary $diary, DiaryRepository $diaryRepository): Response
